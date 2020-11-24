@@ -1,0 +1,33 @@
+<h2 class="m-5">{{mensaje}}</h2>
+
+<!-- Directivas de estructurales de atributo -->
+<!-- Cambian la apariencia o comportamiento de los elementos de HTML -->
+
+<div class="row pt-4">
+    <div class="col-6">
+        <h2>*ngIf</h2>
+        <hr>
+        <!-- *ngIf depende de una variable o propiedad boleana (true o false) -->
+        <div *ngIf="visible" class="card text-white bg-primary mb-3" style="width:100%;">
+            <div class="card-body">
+                <h5 class="card-title">Autor: {{frase.autor}}</h5>
+                <p class="card-text">Mensaje: {{frase.texto}}</p>
+            </div>
+        </div>
+        <button (click)="visible = !visible" class="btn btn-outline-primary btn-block">Esconder/Mostrar</button>
+    </div>
+    <div class="col-6">
+        <h2>*ngFor</h2>
+        <hr>
+        <ul *ngIf="!visible" class="list-group">
+            <!-- *ngFor necesita de un array para ser ejecutado -->
+            <!-- El primer valor del *ngFor se conoce como iterador -->
+            <!-- El segundo será la lista o el array a iterar -->
+            <!-- Podemos agregar un valor extra como contador -->
+            <!-- Declaramos una variable y le asignamos el valor de index-->
+            <!-- El valor de cada vuelta del bucle -->
+            <li *ngFor="let personaje of personajes; let i = index" class="list-group-item"> {{i+1}} {{personaje}}</li>
+        </ul>
+    </div>
+    <!-- Un *ngIf y un *ngFor no pueden ir juntos en un mismo elemento -->
+</div>
